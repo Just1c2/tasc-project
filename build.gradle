@@ -1,0 +1,4 @@
+allprojects {
+    group = 'vn.tass.microservice'
+    version = '1.0'
+}
