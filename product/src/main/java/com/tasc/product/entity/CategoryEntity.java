@@ -1,17 +1,20 @@
 package com.tasc.product.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "products")
-@Data
-@AllArgsConstructor
+@Table(name = "categories")
+@Getter
+@Setter
 @NoArgsConstructor
-public class ProductEntity {
+@AllArgsConstructor
+public class CategoryEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +22,7 @@ public class ProductEntity {
 
     private String name;
     private String description;
-    private String image;
-    private Double price;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private CategoryEntity category;
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<ProductEntity> products;
 }

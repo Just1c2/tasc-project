@@ -44,3 +44,5 @@ vn/tass/microservice/model/ERROR.java
  vn.tass.microservice.model.ERROR$PagingDataResponse
 vn/tass/microservice/model/BaseResponseV2.java
  vn.tass.microservice.model.BaseResponseV2
+vn/tass/microservice/utils/HttpUtil.java
+ vn.tass.microservice.utils.HttpUtil
