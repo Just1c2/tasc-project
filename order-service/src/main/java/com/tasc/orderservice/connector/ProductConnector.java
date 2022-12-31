@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import vn.tass.microservice.model.BaseResponseV2;
 import vn.tass.microservice.model.dto.product.ProductDTO;
 
-@FeignClient(value = "product-service", url = "${tasc.product.address}")
+@FeignClient(value = "product-service", url = "${tasc.product.address")
 public interface ProductConnector {
 
-    @GetMapping("/api")
-    BaseResponseV2<ProductDTO> findById(@RequestParam(name = "id") long id);
+    @GetMapping("/findByIdConnect")
+    BaseResponseV2<ProductDTO> findByIdConnect(@RequestParam(name = "id") long id);
 }

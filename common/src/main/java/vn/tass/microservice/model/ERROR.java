@@ -22,7 +22,9 @@ public enum ERROR {
 
     PRODUCT_NAME_NULL(23, "product name must not be empty", "PRODUCT_NAME_NULL"),
 
-    PRODUCT_PRICE_NULL(24, "product price must not be empty", "PRODUCT_PRICE_NULL"),
+    CATEGORY_NAME_NULL(24, "category name must not be empty", "CATEGORY_NAME_NULL"),
+
+    THERE_ARE_PRODUCTS_IN_THIS_CATEGORY(25, "this category cannot be deleted due to there are products in it", "THERE_ARE_PRODUCTS_IN_THIS_CATEGORY"),
     ;
     public int code;
     public String errorCode;

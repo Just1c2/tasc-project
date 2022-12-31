@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import vn.tass.microservice.model.ApplicationException;
 import vn.tass.microservice.model.BaseResponseV2;
+import vn.tass.microservice.model.dto.product.ProductDTO;
 
 @RestController
-@RequestMapping
+@RequestMapping("/product")
 public class ProductController {
 
     @Autowired
@@ -29,12 +30,18 @@ public class ProductController {
         return productService.saveProduct(request);
     }
 
-    @PutMapping("/update")
-    public BaseResponseV2 updateProduct(@RequestParam(name = "id") Long id, @RequestBody ProductRequest request) throws ApplicationException {
+    @PutMapping("/update/{id}   ")
+    public BaseResponseV2 updateProduct(@PathVariable(name = "id") Long id, @RequestBody ProductRequest request) throws ApplicationException {
         return productService.update(id, request);
     }
 
+    @DeleteMapping("/delete")
     public BaseResponseV2 deleteProduct(@RequestParam(name = "id") Long id) throws ApplicationException{
         return productService.delete(id);
+    }
+
+    @GetMapping("/findByIdConnect")
+    public BaseResponseV2<ProductDTO> findByIdConnect(@RequestParam(name = "id") Long id) throws ApplicationException {
+        return productService.findByIdForConnector(id);
     }
 }

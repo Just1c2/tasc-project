@@ -1,5 +1,6 @@
 package com.tasc.product.service;
 
+import com.tasc.product.entity.CategoryEntity;
 import com.tasc.product.entity.ProductEntity;
 import com.tasc.product.model.ProductRequest;
 import com.tasc.product.repository.ProductRepository;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import vn.tass.microservice.model.ApplicationException;
 import vn.tass.microservice.model.BaseResponseV2;
 import vn.tass.microservice.model.ERROR;
+import vn.tass.microservice.model.dto.product.CategoryDTO;
 import vn.tass.microservice.model.dto.product.ProductDTO;
 
 import java.util.ArrayList;
@@ -32,50 +34,32 @@ public class ProductService {
         productEntity.setName(request.getName());
         productEntity.setDescription(request.getDescription());
         productEntity.setPrice(request.getPrice());
+        productEntity.setImage(request.getImage());
+        productEntity.setCategory(request.getCategory());
 
         productRepository.save(productEntity);
 
-        return new BaseResponseV2<>();
+        return new BaseResponseV2<>(productEntity);
     }
 
-    public BaseResponseV2<ProductDTO> findById(long id) throws ApplicationException {
+    public BaseResponseV2<ProductEntity> findById(long id) throws ApplicationException {
         Optional<ProductEntity> productOpt = productRepository.findById(id);
 
         if (productOpt.isEmpty()){
             throw new ApplicationException(ERROR.ID_NOT_FOUND);
         }
 
-        ProductDTO productDTO = new ProductDTO();
-
-        ProductEntity productEntity = productOpt.get();
-
-        BeanUtils.copyProperties(productEntity, productDTO);
-
-        BaseResponseV2<ProductDTO> response = new BaseResponseV2<>();
-
-        response.setData(productDTO);
-
-        return response;
+        return new BaseResponseV2<>(productOpt.get());
     }
 
-    public BaseResponseV2<ProductDTO> findAll() throws ApplicationException {
+    public BaseResponseV2<ProductEntity> findAll() throws ApplicationException {
         List<ProductEntity> productList = productRepository.findAll();
 
         if (productList.isEmpty()) {
             throw new ApplicationException(ERROR.RESULT_IS_NULL);
         }
 
-        List<ProductDTO> productDTO = new ArrayList<>();
-
-        for (ProductEntity product: productList
-             ) {
-            BeanUtils.copyProperties(product, productDTO);
-        }
-
-        BaseResponseV2<ProductDTO> response = new BaseResponseV2<>();
-        response.setDataList(productDTO);
-
-        return response;
+        return new BaseResponseV2<>(productList);
     }
 
     public BaseResponseV2 delete(long id) throws ApplicationException {
@@ -101,5 +85,24 @@ public class ProductService {
         productRepository.save(productEntity);
 
         return new BaseResponseV2<>();
+    }
+
+    public BaseResponseV2<ProductDTO> findByIdForConnector(long id) throws ApplicationException {
+        Optional<ProductEntity> productOpt = productRepository.findById(id);
+
+        if (productOpt.isEmpty()){
+            throw new ApplicationException(ERROR.ID_NOT_FOUND);
+        }
+
+        ProductDTO productDTO = new ProductDTO();
+        ProductEntity product = productOpt.get();
+
+        productDTO.setId(product.getId());
+        productDTO.setName(productDTO.getName());
+        productDTO.setImage(product.getImage());
+        productDTO.setDescription(product.getDescription());
+        productDTO.setPrice(product.getPrice());
+
+        return new BaseResponseV2<>(productDTO);
     }
 }
