@@ -10,6 +10,7 @@ public class OrderDTO implements Serializable {
     private long userId;
     private int total;
     private int status;
+    private double totalPrice;
 
     public OrderDTO(){
 

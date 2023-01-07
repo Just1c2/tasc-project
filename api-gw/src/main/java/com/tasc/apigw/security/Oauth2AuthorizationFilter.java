@@ -34,7 +34,6 @@ public class Oauth2AuthorizationFilter extends BasicAuthenticationFilter {
 
         // lay ra token
 
-
         String token = HttpUtil.getValueFromHeader(request, AUTHENTICATION.HEADER.TOKEN);
 
         if (StringUtils.isBlank(token)){
@@ -57,9 +56,9 @@ public class Oauth2AuthorizationFilter extends BasicAuthenticationFilter {
 
         UserDetailExtend userDetailExtend = new UserDetailExtend(userLoginDTOObject);
 
-        TascUserAuthentication tassUserAuthentication = new TascUserAuthentication(userDetailExtend);
+        TascUserAuthentication tascUserAuthentication = new TascUserAuthentication(userDetailExtend);
 
-        SecurityContextHolder.getContext().setAuthentication(tassUserAuthentication);
+        SecurityContextHolder.getContext().setAuthentication(tascUserAuthentication);
         chain.doFilter(request, response);
 
     }

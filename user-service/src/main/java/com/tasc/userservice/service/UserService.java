@@ -2,7 +2,8 @@ package com.tasc.userservice.service;
 
 import com.tasc.userservice.entity.UserEntity;
 import com.tasc.userservice.model.request.LoginRequest;
-import com.tasc.userservice.model.request.UserRequest;
+import com.tasc.userservice.model.request.RegisterRequest;
+import com.tasc.userservice.model.request.UpdateInfoRequest;
 import com.tasc.userservice.repository.UserRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class UserService {
     @Autowired
     UserLoginRepository userLoginRepository;
 
-    public BaseResponseV2 register(UserRequest request) throws ApplicationException {
+    public BaseResponseV2 register(RegisterRequest request) throws ApplicationException {
         if (StringUtils.isBlank(request.getUsername())) {
             throw new ApplicationException(ERROR.INVALID_PARAM, "Username is empty");
         }
@@ -70,6 +71,7 @@ public class UserService {
         userLoginDTO.setToken(token);
         userLoginDTO.setUserId(user.getId());
         userLoginDTO.setTimeToLive(20000);
+        userLoginDTO.setRole(user.getRoles());
 
         userLoginRepository.save(userLoginDTO);
 
@@ -77,5 +79,23 @@ public class UserService {
         loginResponse.setData(userLoginDTO);
 
         return loginResponse;
+    }
+
+    public BaseResponseV2 updateInfo(UpdateInfoRequest request, long id) throws ApplicationException {
+        Optional<UserEntity> userOpt = userRepository.findById(id);
+
+        if (userOpt.isEmpty()) {
+            throw new ApplicationException(ERROR.ID_NOT_FOUND, "Id not found");
+        }
+
+        UserEntity user = userOpt.get();
+
+        user.setEmail(request.getEmail());
+        user.setPhone(request.getPhone());
+        user.setAddress(request.getAddress());
+
+        userRepository.save(user);
+
+        return new BaseResponseV2<>();
     }
 }

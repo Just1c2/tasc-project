@@ -20,20 +20,20 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     public void configure(
             org.springframework.security.config.annotation.web.builders.WebSecurity web)
             throws Exception {
-        web.ignoring().antMatchers("/noauth/**" , "/user/register" , "/login");
+        web.ignoring().antMatchers( "/user/register" , "/login");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        HttpSecurity httpSercurity = http.headers().disable()
+        HttpSecurity httpSecurity = http.headers().disable()
                 .cors()
                 .and()
                 .requestCache().disable()
                 .csrf().disable().authorizeRequests().and();
 
         BasicAuthenticationFilter filter = new Oauth2AuthorizationFilter(authenticationManager() , userLoginRepository);
-        httpSercurity.addFilterBefore(filter, BasicAuthenticationFilter.class)
+        httpSecurity.addFilterBefore(filter, BasicAuthenticationFilter.class)
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().exceptionHandling();
 

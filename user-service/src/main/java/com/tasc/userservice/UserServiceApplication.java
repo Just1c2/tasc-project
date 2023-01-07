@@ -16,4 +16,6 @@ public class UserServiceApplication {
     BCryptPasswordEncoder bCryptPasswordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
+
 }

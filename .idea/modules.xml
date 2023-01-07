@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api-gw/microservice-tasc.api-gw.main.iml" filepath="$PROJECT_DIR$/.idea/modules/api-gw/microservice-tasc.api-gw.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/microservice-tasc.common.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/microservice-tasc.common.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/order-service/microservice-tasc.order-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/order-service/microservice-tasc.order-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/product/microservice-tasc.product.main.iml" filepath="$PROJECT_DIR$/.idea/modules/product/microservice-tasc.product.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/user-service/microservice-tasc.user-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/user-service/microservice-tasc.user-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/vn.tass.microservice.microservice-tasc.common.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/vn.tass.microservice.microservice-tasc.common.main.iml" />

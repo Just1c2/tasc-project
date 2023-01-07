@@ -13,6 +13,7 @@ import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 import org.springframework.cglib.proxy.NoOp;
+
 import org.springframework.cloud.netflix.zuul.filters.RouteLocator;
 import org.springframework.cloud.netflix.zuul.web.ZuulController;
 import org.springframework.cloud.netflix.zuul.web.ZuulHandlerMapping;
@@ -37,6 +38,9 @@ public class ZuulConfiguration {
      *            the error controller.
      * @return the new bean post-processor.
      */
+    @Autowired
+     RouteLocator routeLocator;
+
     @Bean
     public ZuulPostProcessor zuulPostProcessor(@Autowired RouteLocator routeLocator, @Autowired ZuulController zuulController,
                                                @Autowired(required = false) ErrorController errorController) {
@@ -103,4 +107,3 @@ public class ZuulConfiguration {
     }
 
 }
-

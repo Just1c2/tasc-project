@@ -30,7 +30,7 @@ public class ProductController {
         return productService.saveProduct(request);
     }
 
-    @PutMapping("/update/{id}   ")
+    @PutMapping("/update/{id}")
     public BaseResponseV2 updateProduct(@PathVariable(name = "id") Long id, @RequestBody ProductRequest request) throws ApplicationException {
         return productService.update(id, request);
     }
