@@ -1,6 +1,6 @@
 package com.tasc.orderservice.service;
 
-import com.tasc.orderservice.connector.ProductConnector;
+import com.tasc.orderservice.connector.ProductConnectorFeign;
 import com.tasc.orderservice.entity.OrderEntity;
 import com.tasc.orderservice.model.request.CreateOrderRequest;
 import com.tasc.orderservice.repository.OrderRepository;
@@ -25,7 +25,7 @@ public class OrderService extends BaseService{
     OrderRepository orderRepository;
 
     @Autowired
-    ProductConnector productConnector;
+    ProductConnectorFeign productConnectorFeign;
 
     @Autowired
     @Qualifier("order")
@@ -41,7 +41,7 @@ public class OrderService extends BaseService{
             throw new ApplicationException(ERROR.INVALID_PARAM);
         }
 
-        BaseResponseV2<ProductDTO> productInfoResponse = productConnector.findByIdConnect(request.getProductId());
+        BaseResponseV2<ProductDTO> productInfoResponse = productConnectorFeign.findByIdConnect(request.getProductId());
 
         if (!productInfoResponse.isSuccess()) {
             throw new ApplicationException(ERROR.INVALID_PARAM);
@@ -60,22 +60,22 @@ public class OrderService extends BaseService{
         order.setStatus(ORDER.STATUS.CREATED);
         order.setProductId(request.getProductId());
         order.setTotalItems(request.getTotal());
+        order.setTotalPrice(order.getTotalItems() * productDTO.getPrice());
 
         orderRepository.save(order);
 
         OrderDTO orderDTO = new OrderDTO();
+
         orderDTO.setOrderId(order.getId());
         orderDTO.setStatus(order.getStatus());
         orderDTO.setProductId(order.getProductId());
         orderDTO.setTotal(order.getTotalItems());
         orderDTO.setTotalPrice(order.getTotalItems() * productDTO.getPrice());
-
-
-        //send message
+        // send event created order
 
         String message = JsonHelper.toString(orderDTO);
 
-        redisPusherMessageService.sendMessage(message, channelTopic);
+        redisPusherMessageService.sendMessage(message , channelTopic);
 
         return new BaseResponse();
 

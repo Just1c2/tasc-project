@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/payment-service" />
             <option value="$PROJECT_DIR$/product" />
             <option value="$PROJECT_DIR$/user-service" />
+            <option value="$PROJECT_DIR$/warehouse-service" />
           </set>
         </option>
       </GradleProjectSettings>

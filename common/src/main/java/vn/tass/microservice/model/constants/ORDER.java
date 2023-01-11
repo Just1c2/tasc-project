@@ -5,6 +5,7 @@ public interface ORDER {
         public static final int CREATED = 1;
         public static final int FAIL = 2;
         public static final int SUCCESS = 3;
+
     }
 
     class SUCCESS_STATUS {

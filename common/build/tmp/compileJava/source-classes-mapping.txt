@@ -4,12 +4,12 @@ vn/tass/microservice/utils/DateTimeUtils.java
  vn.tass.microservice.utils.DateTimeUtils
 vn/tass/microservice/utils/ThreadLocalCollection.java
  vn.tass.microservice.utils.ThreadLocalCollection
-vn/tass/microservice/redis/dto/UserLoginDTO.java
- vn.tass.microservice.redis.dto.UserLoginDTO
+vn/tass/microservice/model/BaseResponse.java
+ vn.tass.microservice.model.BaseResponse
 vn/tass/microservice/utils/StringUtils.java
  vn.tass.microservice.utils.StringUtils
-vn/tass/microservice/redis/repository/UserLoginRepository.java
- vn.tass.microservice.redis.repository.UserLoginRepository
+vn/tass/microservice/model/ApplicationException.java
+ vn.tass.microservice.model.ApplicationException
 vn/tass/microservice/model/constants/ORDER.java
  vn.tass.microservice.model.constants.ORDER
  vn.tass.microservice.model.constants.ORDER$STATUS
@@ -26,25 +26,28 @@ vn/tass/microservice/customanotation/RequireUserLogin.java
  vn.tass.microservice.customanotation.RequireUserLogin
 vn/tass/microservice/model/userauthen/UserDTO.java
  vn.tass.microservice.model.userauthen.UserDTO
-vn/tass/microservice/model/BaseResponseV2.java
- vn.tass.microservice.model.BaseResponseV2
-vn/tass/microservice/utils/HttpUtil.java
- vn.tass.microservice.utils.HttpUtil
+vn/tass/microservice/model/dto/product/CategoryDTO.java
+ vn.tass.microservice.model.dto.product.CategoryDTO
+vn/tass/microservice/redis/dto/UserLoginDTO.java
+ vn.tass.microservice.redis.dto.UserLoginDTO
+vn/tass/microservice/model/dto/product/ProductDTO.java
+ vn.tass.microservice.model.dto.product.ProductDTO
 vn/tass/microservice/model/TEST.java
  vn.tass.microservice.model.TEST
 vn/tass/microservice/utils/JWT_CONSTANT.java
  vn.tass.microservice.utils.JWT_CONSTANT
  vn.tass.microservice.utils.JWT_CONSTANT$JWT_PROPERTIES
-vn/tass/microservice/model/dto/product/ProductDTO.java
- vn.tass.microservice.model.dto.product.ProductDTO
-vn/tass/microservice/model/dto/product/CategoryDTO.java
- vn.tass.microservice.model.dto.product.CategoryDTO
-vn/tass/microservice/model/BaseResponse.java
- vn.tass.microservice.model.BaseResponse
-vn/tass/microservice/model/ApplicationException.java
- vn.tass.microservice.model.ApplicationException
+vn/tass/microservice/model/dto/order/OrderDTO.java
+ vn.tass.microservice.model.dto.order.OrderDTO
+vn/tass/microservice/redis/repository/UserLoginRepository.java
+ vn.tass.microservice.redis.repository.UserLoginRepository
 vn/tass/microservice/model/ERROR.java
  vn.tass.microservice.model.ERROR
  vn.tass.microservice.model.ERROR$PagingDataResponse
-vn/tass/microservice/model/dto/order/OrderDTO.java
- vn.tass.microservice.model.dto.order.OrderDTO
+vn/tass/microservice/model/BaseResponseV2.java
+ vn.tass.microservice.model.BaseResponseV2
+vn/tass/microservice/utils/HttpUtil.java
+ vn.tass.microservice.utils.HttpUtil
+vn/tass/microservice/model/constants/PAYMENT.java
+ vn.tass.microservice.model.constants.PAYMENT
+ vn.tass.microservice.model.constants.PAYMENT$STATUS

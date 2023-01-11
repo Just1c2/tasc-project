@@ -33,7 +33,7 @@ public class LogAspect {
 
 
 
-    @Pointcut("execution(* com.tasc.orderservice.controllers..*(..)))")
+    @Pointcut("execution(* com.tasc.orderservice.controller..*(..)))")
     protected void applicationControllerAllMethod() {
     }
 

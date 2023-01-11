@@ -47,6 +47,7 @@ public class UserService {
         user.setUsername(request.getUsername());
         user.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));
 
+
         userRepository.save(user);
 
         return new BaseResponseV2<>(user);

@@ -14,15 +14,15 @@ public class OrderEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "user-id")
     private long userId;
-    @Column(name = "product-id")
+
     private long productId;
 
-    @Column(name = "is-success")
+    @Column(name = "is_success")
     private int isSuccess;
 
     private int status;
     private String errorCode;
     private int totalItems;
+    private double totalPrice;
 }

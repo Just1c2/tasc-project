@@ -15,7 +15,7 @@ public class OrderController {
 
     @Autowired
     OrderService orderService;
-    @PostMapping
+    @PostMapping("/createOrder")
     @RequireUserLogin
     public BaseResponse createOrder(@RequestBody CreateOrderRequest request) throws ApplicationException {
         return orderService.createdOrder(request);

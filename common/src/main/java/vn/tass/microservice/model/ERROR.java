@@ -24,6 +24,8 @@ public enum ERROR {
 
     CATEGORY_NAME_NULL(24, "category name must not be empty", "CATEGORY_NAME_NULL"),
 
+    BALANCE_INSUFFICIENT(26, "not enough balance to continue payment", "BALANCE_INSUFFICIENT"),
+
     THERE_ARE_PRODUCTS_IN_THIS_CATEGORY(25, "this category cannot be deleted due to there are products in it", "THERE_ARE_PRODUCTS_IN_THIS_CATEGORY"),
     ;
     public int code;
