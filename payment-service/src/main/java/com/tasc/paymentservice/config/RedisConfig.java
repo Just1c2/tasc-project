@@ -20,13 +20,12 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
-import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 @Configuration
 
 @ComponentScan("vn.tass.microservice.redis.dto")
-@EnableRedisRepositories(basePackages = "vn.tass.microservice.redis.repository")
+
 public class RedisConfig {
     @Autowired
     Environment env;
@@ -64,7 +63,7 @@ public class RedisConfig {
     @Bean("order-adapter")
     MessageListenerAdapter messageListenerAdapter( @Autowired
                                                    RedisMessageSubscriber orderCreatedHandle){
-        return new MessageListenerAdapter(orderCreatedHandle);
+        return new MessageListenerAdapter(orderCreatedHandle, "onMessage");
     }
 
     @Bean
@@ -77,6 +76,5 @@ public class RedisConfig {
         container.addMessageListener(orderAdapter, orderChannelTopic);
         return container;
     }
-
 
 }

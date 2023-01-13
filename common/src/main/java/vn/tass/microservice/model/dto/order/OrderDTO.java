@@ -1,9 +1,11 @@
 package vn.tass.microservice.model.dto.order;
 
 import java.io.Serializable;
-import lombok.Data;
+
+import lombok.*;
 
 @Data
+@AllArgsConstructor
 public class OrderDTO implements Serializable {
     private long orderId;
     private long productId;

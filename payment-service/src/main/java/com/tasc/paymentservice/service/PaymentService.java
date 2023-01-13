@@ -2,6 +2,7 @@ package com.tasc.paymentservice.service;
 
 import com.tasc.paymentservice.entity.Balance;
 import com.tasc.paymentservice.entity.PaymentEntity;
+import com.tasc.paymentservice.listener.RedisMessageSubscriber;
 import com.tasc.paymentservice.model.request.UpdatePaymentInfoRequest;
 import com.tasc.paymentservice.repository.BalanceRepository;
 import com.tasc.paymentservice.repository.PaymentRepository;
@@ -53,7 +54,9 @@ public class PaymentService extends BaseService{
         return new BaseResponseV2<>();
     }
 
-    public void handleEventOrder(OrderDTO orderDTO ) {
+    public void handleEventOrder(OrderDTO orderDTO) {
+
+
         if (orderDTO.getStatus() == ORDER.STATUS.CREATED){
             this.handleOrderEventCreated(orderDTO);
             return;

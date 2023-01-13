@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import vn.tass.microservice.model.dto.order.OrderDTO;
 import vn.tass.microservice.utils.JsonHelper;
 
+import javax.persistence.PostLoad;
+
 @Log4j2
 @Service
 public class RedisMessageSubscriber implements MessageListener {

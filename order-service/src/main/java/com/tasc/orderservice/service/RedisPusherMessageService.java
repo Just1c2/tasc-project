@@ -12,6 +12,6 @@ public class RedisPusherMessageService {
     private RedisTemplate<String, Object> redisTemplate;
 
     public void sendMessage(String message , ChannelTopic channelTopic){
-        redisTemplate.convertAndSend(channelTopic.getTopic() , message);
+        redisTemplate.convertAndSend(message, channelTopic.getTopic());
     }
 }

@@ -67,6 +67,7 @@ public class OrderService extends BaseService{
         OrderDTO orderDTO = new OrderDTO();
 
         orderDTO.setOrderId(order.getId());
+        orderDTO.setUserId(userDTO.getUserId());
         orderDTO.setStatus(order.getStatus());
         orderDTO.setProductId(order.getProductId());
         orderDTO.setTotal(order.getTotalItems());

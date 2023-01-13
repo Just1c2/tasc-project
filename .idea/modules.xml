@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/payment-service/microservice-tasc.payment-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/payment-service/microservice-tasc.payment-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/product/microservice-tasc.product.main.iml" filepath="$PROJECT_DIR$/.idea/modules/product/microservice-tasc.product.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/user-service/microservice-tasc.user-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/user-service/microservice-tasc.user-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/warehouse-service/microservice-tasc.warehouse-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/warehouse-service/microservice-tasc.warehouse-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/vn.tass.microservice.microservice-tasc.common.main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/vn.tass.microservice.microservice-tasc.common.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/product/vn.tass.microservice.microservice-tasc.product.main.iml" filepath="$PROJECT_DIR$/.idea/modules/product/vn.tass.microservice.microservice-tasc.product.main.iml" />
     </modules>
